@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // 0. Header scroll class
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
     
     // 1. Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -81,12 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Scroll Reveal Animation
     const revealElements = document.querySelectorAll(
-        '.problem-card, .solution-card, .service-box, .why-card, .industry-card, .expect-card, .journey-step, .faq-item'
+        '.problem-card, .solution-card, .service-box, .why-card, .industry-card, .expect-card, .journey-step, .faq-item, .testimonial-card, .stat-item, .reveal'
     );
 
-    // Add reveal class to all target elements
+    // Add reveal class to all target elements (only if not already present)
     revealElements.forEach(el => {
-        el.classList.add('reveal');
+        if (!el.classList.contains('reveal')) el.classList.add('reveal');
     });
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -112,12 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
         '.services-grid .service-box',
         '.why-grid .why-card',
         '.industries-grid .industry-card',
+        '.testimonials-grid .testimonial-card',
+        '.stats-grid .stat-item',
     ];
 
     staggerGroups.forEach(selector => {
         const items = document.querySelectorAll(selector);
         items.forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.08}s`;
+            item.style.transitionDelay = `${index * 0.1}s`;
         });
     });
 });

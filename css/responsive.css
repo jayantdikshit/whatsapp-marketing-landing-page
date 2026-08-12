@@ -1,46 +1,57 @@
 /* 
-  Webmatic — Dark UI Responsive Styles
+  Webmatic — Responsive Styles
+  Covers: Tablet (1024px), Mobile (768px), Small Mobile (480px)
 */
 
-/* Tablet (Max-width: 1024px) */
+/* ===== TABLET (Max 1024px) ===== */
 @media (max-width: 1024px) {
     :root {
         --section-pad: 80px 0;
     }
 
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 50px;
+    .hero-content h1 {
+        font-size: 3.8rem;
     }
 
-    .hero-content {
-        order: 1;
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero-visual {
-        order: 2;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .hero-ctas {
-        justify-content: center;
-    }
-
+    /* Solutions */
     .solutions-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .solutions-grid .solution-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Services */
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonials-grid .testimonial-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    /* Form */
     .form-wrapper {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
 
+    /* Footer */
     .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -52,7 +63,7 @@
         text-align: center;
     }
 
-    /* Process — keep horizontal but tighter */
+    /* Process */
     .process-journey {
         flex-wrap: nowrap;
     }
@@ -64,9 +75,19 @@
     .journey-line {
         max-width: 60px;
     }
+
+    /* Industries */
+    .industries-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Why */
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Mobile (Max-width: 768px) */
+/* ===== MOBILE (Max 768px) ===== */
 @media (max-width: 768px) {
     :root {
         --section-pad: 70px 0;
@@ -88,7 +109,7 @@
     .main-nav {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 76px;
         left: 0;
         width: 100%;
         background: var(--surface);
@@ -96,6 +117,7 @@
         padding: 24px;
         box-shadow: var(--shadow-md);
         border-bottom: 1px solid var(--border);
+        z-index: 999;
     }
 
     .main-nav.active {
@@ -131,11 +153,11 @@
 
     /* Hero */
     #hero {
-        padding: 130px 0 70px;
+        padding: 130px 0 80px;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
     }
 
     .subheadline {
@@ -144,10 +166,12 @@
 
     .hero-ctas {
         flex-direction: column;
+        align-items: center;
     }
 
     .hero-ctas .btn {
         width: 100%;
+        max-width: 360px;
     }
 
     /* Floating cards — stack below on mobile */
@@ -165,6 +189,20 @@
         align-items: center;
     }
 
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        border-radius: var(--radius-sm);
+    }
+
+    .stat-item {
+        padding: 36px 20px;
+    }
+
+    .stat-number {
+        font-size: 2.4rem;
+    }
+
     /* Problem */
     .problem-grid {
         grid-template-columns: 1fr;
@@ -175,11 +213,17 @@
         grid-template-columns: 1fr;
     }
 
+    .solutions-grid .solution-card:nth-child(3) {
+        grid-column: auto;
+        max-width: none;
+    }
+
     /* Process — Vertical on mobile */
     .process-journey {
         flex-direction: column;
         align-items: flex-start;
         padding-left: 30px;
+        margin-bottom: 40px;
     }
 
     .journey-step {
@@ -208,7 +252,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Why Webmatic */
+    /* Why */
     .why-grid {
         grid-template-columns: 1fr;
     }
@@ -224,9 +268,24 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    .testimonials-grid .testimonial-card:nth-child(3) {
+        grid-column: auto;
+        max-width: none;
+    }
+
     /* Case Studies */
     .expect-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Form */
+    .form-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
 
     /* Footer */
@@ -254,13 +313,32 @@
     }
 
     #final-cta h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+
+    /* Trust */
+    .trust-stars {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
-/* Small Mobile (Max-width: 480px) */
+/* ===== SMALL MOBILE (Max 480px) ===== */
 @media (max-width: 480px) {
     .hero-content h1 {
+        font-size: 1.95rem;
+    }
+
+    .eyebrow {
+        font-size: 0.75rem;
+        padding: 7px 14px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-number {
         font-size: 2rem;
     }
 
@@ -283,10 +361,19 @@
     }
 
     #final-cta h2 {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
     }
 
     .form-content h2 {
-        font-size: 2rem;
+        font-size: 1.9rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .btn-large {
+        padding: 15px 24px;
+        font-size: 0.95rem;
     }
 }
